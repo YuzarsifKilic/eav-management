@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -28,14 +29,5 @@ public class BaseEntity {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "baseEntity", cascade = CascadeType.REMOVE)
-    private Set<VarChar> varChars;
-
-    @OneToMany(mappedBy = "baseEntity", cascade = CascadeType.REMOVE)
-    private Set<Boolean> booleans;
-
-    @OneToMany(mappedBy = "baseEntity", cascade = CascadeType.REMOVE)
-    private Set<Number> numbers;
-
-    @OneToMany(mappedBy = "baseEntity", cascade = CascadeType.REMOVE)
-    private Set<DateTime> dateTimes;
+    private List<BaseEntityAttribute> baseEntityAttributes;
 }

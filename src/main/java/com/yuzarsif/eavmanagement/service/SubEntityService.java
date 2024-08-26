@@ -1,6 +1,7 @@
 package com.yuzarsif.eavmanagement.service;
 
 import com.yuzarsif.eavmanagement.dto.SubEntityListDto;
+import com.yuzarsif.eavmanagement.model.SubEntity;
 import com.yuzarsif.eavmanagement.repository.SubEntityRepository;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,11 @@ public class SubEntityService {
                 .stream()
                 .map(SubEntityListDto::convert)
                 .toList();
+    }
+
+    protected SubEntity getSubEntityById(Long id) {
+        return subEntityRepository
+                .findById(id)
+                .orElse(null);
     }
 }

@@ -20,13 +20,9 @@ public class VarChar {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "base_entity_attribute_id")
-    private Attribute attribute;
-
-    @ManyToOne
-    @JoinColumn(name = "base_entity_id")
-    private BaseEntity baseEntity;
+    private BaseEntityAttribute attribute;
 
     private String value;
 }
