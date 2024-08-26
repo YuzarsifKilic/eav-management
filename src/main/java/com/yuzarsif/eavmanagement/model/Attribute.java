@@ -3,6 +3,7 @@ package com.yuzarsif.eavmanagement.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -34,15 +35,6 @@ public class Attribute {
     private EntityType entityType;
 
     @OneToMany(mappedBy = "attribute", cascade = CascadeType.REMOVE)
-    private Set<VarChar> varChars;
-
-    @OneToMany(mappedBy = "attribute", cascade = CascadeType.REMOVE)
-    private Set<Boolean> booleans;
-
-    @OneToMany(mappedBy = "attribute", cascade = CascadeType.REMOVE)
-    private Set<Number> numbers;
-
-    @OneToMany(mappedBy = "attribute", cascade = CascadeType.REMOVE)
-    private Set<DateTime> dateTimes;
+    private List<BaseEntityAttribute> baseEntityAttributes;
 
 }

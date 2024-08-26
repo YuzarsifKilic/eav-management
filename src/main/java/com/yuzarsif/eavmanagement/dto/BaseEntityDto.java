@@ -1,6 +1,7 @@
 package com.yuzarsif.eavmanagement.dto;
 
 import com.yuzarsif.eavmanagement.model.BaseEntity;
+import com.yuzarsif.eavmanagement.model.BaseEntityAttribute;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,12 +14,14 @@ import java.util.Set;
 public record BaseEntityDto(
         Long id,
         LocalDateTime createdAt,
-        LocalDateTime updatedAt) implements Serializable {
+        LocalDateTime updatedAt,
+        List<BaseEntityAttributeDto> attributes) implements Serializable {
 
     public static BaseEntityDto convert(BaseEntity from) {
         return new BaseEntityDto(
                 from.getId(),
                 from.getCreatedAt(),
-                from.getUpdatedAt());
+                from.getUpdatedAt(),
+                BaseEntityAttributeDto.convert(from.getBaseEntityAttributes()));
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface AttributeRepository extends JpaRepository<Attribute, Long> {
 
-    List<Attribute> findBySubEntity_Id(Long id);
+    List<Attribute> findBySubEntity_IdOrEntityType_Id(Long subEntityId, Long entityTypeId);
 }
